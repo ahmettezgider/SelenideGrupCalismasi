@@ -5,14 +5,17 @@ import basqar1.model.Locators1;
 import basqar1.pages.HomePage1;
 import basqar1.utils.BaseClass;
 import com.codeborne.selenide.CollectionCondition;
+import com.codeborne.selenide.Selenide;
 import cucumber.api.DataTable;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import static basqar1.utils.Notification.*;
 
 import java.util.List;
 
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
@@ -41,6 +44,7 @@ public class CountrySteps1 extends BaseClass implements Locators1 {
     @And("^user click to AddButton on country page$")
     public void userClickToAddButtonOnCountryPage() {
         hp.clickToAddButton();
+        Selenide.screenshot("addButtonSonrasi");
     }
 
     @When("^user create a country as follows$")
@@ -51,5 +55,31 @@ public class CountrySteps1 extends BaseClass implements Locators1 {
 
     @Then("^creation should be successful$")
     public void creationShouldBeSuccessful() {
+        notify(created);
+        //$(NOTIFICATION_CONTAINER).should(appears).shouldHave(Condition.text("created"));
+
+    }
+
+    @When("^user edit \"([^\"]*)\"$")
+    public void userEdit(String name)  {
+        edit(name);
+    }
+
+    @And("^close dialog$")
+    public void closeDialog() {
+        $(DIALOG_CLOSE_BUTTON).shouldBe(enabled).click();
+        $(NOTIFICATION_CONTAINER).screenshot();
+    }
+
+    @When("^user delete \"([^\"]*)\"$")
+    public void userDelete(String name) {
+        delete(name);
+    }
+
+    @Then("^data should be deleted$")
+    public void dataShouldBeDeleted() {
+        notify(deleted);
+        $(NOTIFICATION_CONTAINER).screenshot();
+        //$(NOTIFICATION_CONTAINER).should(appears).shouldHave(Condition.text("deleted"));
     }
 }

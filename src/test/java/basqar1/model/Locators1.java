@@ -22,6 +22,10 @@ public interface Locators1 {
     By LEFTMENUBAR = By.cssSelector("fuse-sidebar");
     By ToggleSideBarFolded = By.cssSelector("button.toggle-sidebar-folded");
     By NavbarToggleButton = By.cssSelector("button.navbar-toggle-button");
+    By NOTIFICATION_CONTAINER = By.cssSelector("div#toast-container");
+    By DIALOG_CLOSE_BUTTON = By.cssSelector("ms-dialog mat-toolbar button[aria-label='Close dialog']");
+    By DIALOG_CONFIRM_YES = By.xpath("//button[@type='submit']");
+
 
 
 
