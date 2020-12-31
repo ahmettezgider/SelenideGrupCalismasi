@@ -33,6 +33,8 @@ public class HomePage1 implements Locators1 {
     }
 
     public CountryPage1 gotoCountries(){
+        if (!$(ToggleSideBarFolded).isDisplayed())
+            $(NavbarToggleButton).shouldBe(Condition.appear).click();
         $(SETUP1).shouldBe(Condition.visible).click();
         $(PARAMETERS1).shouldBe(Condition.visible).click();
         $(COUNTRIES).shouldBe(Condition.visible).click();

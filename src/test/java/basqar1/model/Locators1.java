@@ -19,6 +19,9 @@ public interface Locators1 {
     By FORM_NAME = By.cssSelector("ms-text-field[formcontrolname='name']>input");
     By FORM_CODE = By.cssSelector("ms-text-field[formcontrolname='code']>input");
     By FORM_SAVE_BUTTON = By.cssSelector("mat-dialog-actions ms-save-button");
+    By LEFTMENUBAR = By.cssSelector("fuse-sidebar");
+    By ToggleSideBarFolded = By.cssSelector("button.toggle-sidebar-folded");
+    By NavbarToggleButton = By.cssSelector("button.navbar-toggle-button");
 
 
 

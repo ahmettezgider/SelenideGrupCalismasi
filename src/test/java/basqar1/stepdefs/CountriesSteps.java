@@ -13,6 +13,8 @@ public class CountriesSteps extends BaseClass implements Locators1 {
 
     @Given("^on countries page$")
     public void onCountriesPage() {
+        if (!$(ToggleSideBarFolded).isDisplayed())
+            $(NavbarToggleButton).shouldBe(Condition.appear).click();
         $(SETUP1).shouldBe(Condition.visible).click();
         $(PARAMETERS1).shouldBe(Condition.visible).click();
         $(COUNTRIES).shouldBe(Condition.visible).click();
@@ -27,8 +29,8 @@ public class CountriesSteps extends BaseClass implements Locators1 {
     public void dialogFormShouldBeVisible() {
 
         $(DIALOGCONTAINER).shouldBe(Condition.visible);
-        edit("Country-001");
-        $("").shouldHave(Condition.attribute("color", "#12121323"));
+        //edit("Country-001");
+        //$("").shouldHave(Condition.attribute("color", "#12121323"));
 
     }
 }

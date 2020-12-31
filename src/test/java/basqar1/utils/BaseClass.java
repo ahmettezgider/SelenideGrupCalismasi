@@ -7,7 +7,6 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class BaseClass {
 
-
     public By getSelector(String name){
         return By.xpath("//mat-toolbar//*[contains(text(),'" + name + "')]");
     }

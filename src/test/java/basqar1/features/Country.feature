@@ -8,7 +8,7 @@ Feature: Country functionality
     Given user click to AddButton on country page
 
     When user create a country as follows
-      | Country-001 | Code-001 |
+      | Country-002 | Code-001 |
 
     Then creation should be successful
 

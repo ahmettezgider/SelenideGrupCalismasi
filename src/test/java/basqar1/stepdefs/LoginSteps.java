@@ -2,6 +2,7 @@ package basqar1.stepdefs;
 
 import basqar1.model.Locators1;
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Configuration;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -14,6 +15,7 @@ public class LoginSteps implements Locators1 {
 
     @Given("^user on homepage$")
     public void userOnHomepage() {
+        Configuration.browserSize = "700x600";
         open(URL);
     }
 
