@@ -145,6 +145,57 @@ public class Test02 {
 
     }
 
+    @Test
+    public void test07(){
+        // scrollTo
+        open(url1);
+
+        String input = "input[name='search']";
+        $(input).shouldBe(Condition.visible).setValue("a").pressEnter();
 
 
+        $("img[title='MacBook']").scrollTo();
+        sleep(1000);
+
+    }
+
+    @Test
+    public void test08(){
+        // scrollTo
+        open(url1);
+
+        String input = "input[name='search']";
+        $(input).shouldBe(Condition.visible).setValue("a").pressEnter();
+
+        int i = 10;
+
+        while (!Selenide.atBottom()){
+            executeJavaScript("scrollBy(0,"+ i + ")");
+            i+=5;
+            sleep(50);
+        }
+
+        sleep(1000);
+
+    }
+
+    @Test
+    public void test09(){
+        // scrollTo
+        open(url1);
+
+        executeJavaScript("alert('Mesaj Kutusu')");
+        Selenide.confirm();
+
+
+        executeJavaScript("confirm('Confirm Kutusu')");
+        Selenide.dismiss();
+
+        switchTo().frame(1);
+        switchTo().parentFrame();
+        switchTo().window(2);
+
+        sleep(5000);
+
+    }
 }
