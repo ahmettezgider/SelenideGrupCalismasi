@@ -3,6 +3,9 @@ package calisma;
 import com.codeborne.selenide.*;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class Test01 {
@@ -118,5 +121,6 @@ public class Test01 {
 
 
     }
+
 
 }
