@@ -2,10 +2,13 @@ package calisma;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
 import org.testng.annotations.Test;
 
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class Test02 {
@@ -88,4 +91,60 @@ public class Test02 {
         sleep(3000);
 
     }
+
+
+    @Test
+    public void test05(){
+        // $(selector).find()
+        open(url1);
+
+        String tablets = "//nav[@id='menu']//a[text()='Tablets']";
+
+        String menu = "//nav[@id='menu']";
+        String menuTablets = "//a[text()='Tablets']";
+
+        //$(By.xpath(tablets)).shouldBe(Condition.visible).click();
+
+        $(By.xpath(menu))
+                .find(By.linkText("Tablets"))  // .$(By.linkText("Tablets"))
+                .shouldBe(Condition.visible)
+                .click();
+
+
+        sleep(3000);
+
+    }
+
+    @Test
+    public void test06(){
+        // $(selector).find()
+        open(url1);
+
+        String menu_li = "ul.nav.navbar-nav > li";
+
+        //$("div#logo").screenshot();
+        SelenideElement e = $("img[title='MacBook']");
+        e.screenshot();
+        e.getScreenshotAs(OutputType.FILE);
+
+        /*
+        Selenide.screenshot("sayfa");
+        for (SelenideElement e : $$(menu_li)){
+            e.hover();
+            e.screenshot();
+            sleep(100);
+
+        }
+*/
+
+        zoom(2);
+        $(By.xpath("(//div[@class='product-thumb transition'])[1]")).scrollTo();
+        Selenide.screenshot("sayfa2");
+
+        sleep(1000);
+
+    }
+
+
+
 }
